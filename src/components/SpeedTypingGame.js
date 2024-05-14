@@ -78,7 +78,7 @@ const SpeedTypingGame = () => {
       <span
         key={index}
         style={{
-          color: letter !== " " ? "black" : "transparent",
+          color: letter !== " " ? "white" : "transparent",
         }}
         className={`char ${index === 0 ? "active" : ""}`}
       >

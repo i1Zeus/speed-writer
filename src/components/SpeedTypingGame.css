@@ -54,12 +54,12 @@ span {
 
 span.wrong {
   color: darkred;
-  background-color: pink;
+  background-color: rgb(209, 167, 174);
 }
 
 span.correct {
   color: #0e630e;
-  background: #e7fbd3;
+  background: #839b68;
 }
 
 span.active {
