@@ -7,7 +7,8 @@ body {
   justify-content: center;
   align-items: center;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #e7e9e9;
+  background-color: #252525;
+  color: #fff;
 }
 
 .container {
@@ -18,7 +19,7 @@ body {
   border-radius: 10px;
   box-sizing: border-box;
   border: 1px solid #ced4da;
-  background: #fff;
+  background: rgb(28, 28, 28);
   box-shadow: 0 0 6px rgba(0, 0, 0, 0.25);
 }
 
@@ -58,6 +59,22 @@ span.correct {
 
 span.active {
   border-bottom: 3px solid #0a6bf9;
+}
+/* Make the active span blink as if a real text poniter */
+span.active {
+  animation: blink 0.9s infinite;
+}
+
+@keyframes blink {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 .section2 {
