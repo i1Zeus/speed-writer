@@ -13,7 +13,6 @@ body {
 
 .container {
   max-width: 650px;
-
   margin: 5px;
   width: calc(100% - 10px);
   padding: 30px;
@@ -33,21 +32,26 @@ input.input-field {
 #paragraph {
   word-break: break-all;
   text-align: left;
+  color: #fff; /* Added to make the text white */
 }
+
 .section {
   border: 1px solid #ced4da;
   border-radius: 5px;
   padding: 20px;
   padding-top: 0;
 }
+
 .section1 {
   border-bottom: 1px solid #ced4da;
 }
+
 span {
   font-size: 20px;
   user-select: none;
   cursor: tex;
 }
+
 span.wrong {
   color: darkred;
   background-color: pink;
@@ -60,9 +64,6 @@ span.correct {
 
 span.active {
   border-bottom: 3px solid #0a6bf9;
-}
-
-span.active {
   animation: blink 0.9s infinite;
 }
 
@@ -84,6 +85,7 @@ span.active {
   align-items: center;
   margin-top: 5px;
 }
+
 .section2 ul {
   padding-inline-start: 0px;
   display: flex;
