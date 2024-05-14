@@ -125,7 +125,6 @@ const SpeedTypingGame = () => {
   const initTyping = (event) => {
     const characters = document.querySelectorAll(".char");
     const typedChar = event.target.value[event.target.value.length - 1]; // Get the last typed character
-    const inputField = event.target;
 
     if (charIndex < characters.length && timeLeft > 0) {
       const currentChar = characters[charIndex].innerText.trim(); // Trim to match space handling
@@ -194,6 +193,7 @@ const SpeedTypingGame = () => {
 
   useEffect(() => {
     loadParagraph();
+    // eslint-disable-next-line
   }, []);
 
   useEffect(() => {
@@ -217,6 +217,7 @@ const SpeedTypingGame = () => {
     return () => {
       clearInterval(interval);
     };
+    // eslint-disable-next-line
   }, [isTyping, timeLeft]);
 
   return (
