@@ -13,6 +13,7 @@ body {
 
 .container {
   max-width: 650px;
+
   margin: 5px;
   width: calc(100% - 10px);
   padding: 30px;
@@ -60,7 +61,7 @@ span.correct {
 span.active {
   border-bottom: 3px solid #0a6bf9;
 }
-/* Make the active span blink as if a real text poniter */
+
 span.active {
   animation: blink 0.9s infinite;
 }
