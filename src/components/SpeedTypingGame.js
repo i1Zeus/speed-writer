@@ -68,7 +68,13 @@ const SpeedTypingGame = () => {
     const ranIndex = Math.floor(Math.random() * paragraphs.length);
     const inputField = document.getElementsByClassName("input-field")[0];
     document.addEventListener("keydown", () => inputField.focus());
-    const content = Array.from(paragraphs[ranIndex]).map((letter, index) => (
+
+    // Replace newlines with a single space and collapse multiple spaces
+    const paragraph = paragraphs[ranIndex]
+      .replace(/\n/g, " ")
+      .replace(/\s\s+/g, " ");
+
+    const content = Array.from(paragraph).map((letter, index) => (
       <span
         key={index}
         style={{
@@ -76,16 +82,17 @@ const SpeedTypingGame = () => {
         }}
         className={`char ${index === 0 ? "active" : ""}`}
       >
-        {" "}
-        {letter !== " " ? letter : "_"}{" "}
+        {letter !== " " ? letter : "_"}
       </span>
     ));
+
     setTypingText(content);
     setInpFieldValue("");
     setCharIndex(0);
     setMistakes(0);
     setIsTyping(false);
   };
+
   const handleKeyDown = (event) => {
     const characters = document.querySelectorAll(".char");
     if (
