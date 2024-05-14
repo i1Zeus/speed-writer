@@ -117,29 +117,39 @@ const SpeedTypingGame = () => {
 
   const initTyping = (event) => {
     const characters = document.querySelectorAll(".char");
-    let typedChar = event.target.value;
+    const typedChar = event.target.value[event.target.value.length - 1]; // Get the last typed character
+    const inputField = event.target;
+
     if (charIndex < characters.length && timeLeft > 0) {
-      let currentChar = characters[charIndex].innerText;
-      if (currentChar === "_") currentChar = " ";
+      const currentChar = characters[charIndex].innerText.trim(); // Trim to match space handling
+
       if (!isTyping) {
         setIsTyping(true);
       }
-      if (typedChar === currentChar) {
+
+      if (
+        typedChar === currentChar ||
+        (typedChar === " " && currentChar === "_")
+      ) {
         setCharIndex(charIndex + 1);
-        if (charIndex + 1 < characters.length)
+        if (charIndex + 1 < characters.length) {
           characters[charIndex + 1].classList.add("active");
+        }
         characters[charIndex].classList.remove("active");
         characters[charIndex].classList.add("correct");
       } else {
         setCharIndex(charIndex + 1);
         setMistakes(mistakes + 1);
         characters[charIndex].classList.remove("active");
-        if (charIndex + 1 < characters.length)
+        if (charIndex + 1 < characters.length) {
           characters[charIndex + 1].classList.add("active");
+        }
         characters[charIndex].classList.add("wrong");
       }
 
-      if (charIndex === characters.length - 1) setIsTyping(false);
+      if (charIndex === characters.length - 1) {
+        setIsTyping(false);
+      }
 
       let wpm = Math.round(
         ((charIndex - mistakes) / 5 / (maxTime - timeLeft)) * 60
@@ -150,6 +160,8 @@ const SpeedTypingGame = () => {
       let cpm = (charIndex - mistakes) * (60 / (maxTime - timeLeft));
       cpm = cpm < 0 || !cpm || cpm === Infinity ? 0 : cpm;
       setCPM(parseInt(cpm, 10));
+
+      setInpFieldValue(event.target.value); // Update input field value
     } else {
       setIsTyping(false);
     }
